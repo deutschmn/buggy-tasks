@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "buggy-af"
+version = "0.1.0"
+description = "A Python REST API built with FastAPI for machine learning model training and inference"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+packages = [{include = "app"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0"
+pydantic = "^2.6.0"
+scikit-learn = "^1.4.0"
+joblib = "^1.3.0"
+python-multipart = "^0.0.9"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"
+black = "^24.1.0"
+isort = "^5.13.0"
+flake8 = "^7.0.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api" 
