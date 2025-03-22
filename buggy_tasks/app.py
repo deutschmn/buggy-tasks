@@ -1,6 +1,6 @@
 import streamlit as st
 
-from buggy_tasks.commands import process_command
+from buggy_tasks.commands import process_command, registry
 from buggy_tasks.io import load_todos, save_todos
 
 # Initialize session state for todos if it doesn't exist
@@ -8,6 +8,8 @@ if "todos" not in st.session_state:
     st.session_state.todos = []
 if "new_todo" not in st.session_state:
     st.session_state.new_todo = ""
+if "show_commands" not in st.session_state:
+    st.session_state.show_commands = False
 
 
 def add_todo():
@@ -17,6 +19,7 @@ def add_todo():
         st.session_state.todos.insert(0, {"task": processed_todo, "completed": False})
         save_todos(st.session_state.todos)
         st.session_state.new_todo = ""
+        st.session_state.show_commands = False
 
 
 def clear_todos():
@@ -34,9 +37,24 @@ if not st.session_state.todos:
 with st.form("add_todo_form"):
     col1, col2 = st.columns([3, 1])
     with col1:
-        st.text_input("Add a new todo", key="new_todo", label_visibility="collapsed")
+        st.text_input(
+            "Add a new todo",
+            key="new_todo",
+            label_visibility="collapsed"
+        )
     with col2:
         st.form_submit_button("Add", on_click=add_todo)
+
+# Command palette button
+if st.button("Show Available Commands"):
+    st.session_state.show_commands = not st.session_state.show_commands
+
+if st.session_state.show_commands:
+    st.markdown("### Available Commands")
+    for cmd in registry.get_commands():
+        with st.expander(f"`{cmd.name}`"):
+            st.markdown(f"**Description:** {cmd.description}")
+            st.markdown(f"**Example:** `{cmd.example}`")
 
 # Display todos
 for i, todo in enumerate(st.session_state.todos):
