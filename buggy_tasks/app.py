@@ -1,6 +1,6 @@
 import streamlit as st
 
-from buggy_af.io import load_todos, save_todos
+from buggy_tasks.io import load_todos, save_todos
 
 # Initialize session state for todos if it doesn't exist
 if "todos" not in st.session_state:
@@ -23,7 +23,7 @@ def clear_todos():
     save_todos(st.session_state.todos)
 
 
-st.title("Buggy AF - TODO List")
+st.title("Buggy Tasks - To Do List")
 
 # Load todos on startup
 if not st.session_state.todos:

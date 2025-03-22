@@ -1,10 +1,10 @@
 [tool.poetry]
-name = "buggy-af"
+name = "buggy-tasks"
 version = "0.1.0"
 description = "A simple TODO list app built using Streamlit"
 authors = ["Patrick Deutschmann <patrick.deutschmann@me.com>"]
 readme = "README.md"
-packages = [{include = "buggy_af"}]
+packages = [{include = "buggy_tasks"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"
