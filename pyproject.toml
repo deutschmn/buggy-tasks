@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "buggy-af"
+version = "0.1.0"
+description = "A simple TODO list app built using Streamlit"
+authors = ["Patrick Deutschmann <patrick.deutschmann@me.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+streamlit = "^1.32.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api" 
