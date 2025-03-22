@@ -1,26 +1,10 @@
-import json
-from pathlib import Path
-
 import streamlit as st
+
+from buggy_af.io import load_todos, save_todos
 
 # Initialize session state for todos if it doesn't exist
 if "todos" not in st.session_state:
     st.session_state.todos = []
-
-
-def save_todos():
-    """Save todos to a JSON file"""
-    with open("todos.json", "w") as f:
-        json.dump(st.session_state.todos, f)
-
-
-def load_todos():
-    """Load todos from JSON file"""
-    if Path("todos.json").exists():
-        with open("todos.json", "r") as f:
-            return json.load(f)
-    return []
-
 
 st.title("Buggy AF - TODO List")
 
@@ -32,7 +16,7 @@ if not st.session_state.todos:
 new_todo = st.text_input("Add a new todo")
 if st.button("Add") and new_todo:
     st.session_state.todos.append({"task": new_todo, "completed": False})
-    save_todos()
+    save_todos(st.session_state.todos)
     st.text_input("Add a new todo", value="", key="clear_input")
 
 # Display todos
@@ -42,9 +26,9 @@ for i, todo in enumerate(st.session_state.todos):
     with col1:
         if st.checkbox(todo["task"], key=f"todo_{i}", value=todo["completed"]):
             st.session_state.todos[i]["completed"] = not todo["completed"]
-            save_todos()
+            save_todos(st.session_state.todos)
     with col2:
         if st.button("Delete", key=f"delete_{i}"):
             st.session_state.todos.pop(i)
-            save_todos()
+            save_todos(st.session_state.todos)
             st.rerun()
