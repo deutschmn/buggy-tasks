@@ -1,13 +1,24 @@
+from dataclasses import dataclass
 from typing import Any, Callable
+
+
+@dataclass
+class CommandInfo:
+    name: str
+    description: str
+    example: str
+    func: Callable
 
 
 class CommandRegistry:
     def __init__(self):
-        self.commands: dict[str, Callable] = {}
+        self.commands: dict[str, CommandInfo] = {}
 
-    def register(self, name: str) -> Callable:
+    def register(self, name: str, description: str, example: str) -> Callable:
         def decorator(func: Callable) -> Callable:
-            self.commands[name] = func
+            self.commands[name] = CommandInfo(
+                name=name, description=description, example=example, func=func
+            )
             return func
 
         return decorator
@@ -15,13 +26,18 @@ class CommandRegistry:
     def execute(self, command: str, *args: Any) -> str:
         if command not in self.commands:
             return f"Unknown command: {command}"
-        return self.commands[command](*args)
+        return self.commands[command].func(*args)
+
+    def get_commands(self) -> list[CommandInfo]:
+        return list(self.commands.values())
 
 
 registry = CommandRegistry()
 
 
-@registry.register("translate")
+@registry.register(
+    "translate", "Translate text to a target language", '/translate("Hello", "IT")'
+)
 def translate(text: str, target_lang: str) -> str:
     # TODO This is a placeholder implementation
     return f"[{target_lang}] {text}"
