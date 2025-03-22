@@ -25,19 +25,17 @@ def clear_todos():
 
 st.title("Buggy AF - TODO List")
 
-# Clear all todos button
-if st.button("Clear All", type="secondary"):
-    clear_todos()
-    st.rerun()
-
 # Load todos on startup
 if not st.session_state.todos:
     st.session_state.todos = load_todos()
 
 # Add new todo using a form
 with st.form("add_todo_form"):
-    st.text_input("Add a new todo", key="new_todo")
-    st.form_submit_button("Add", on_click=add_todo)
+    col1, col2 = st.columns([3, 1])
+    with col1:
+        st.text_input("Add a new todo", key="new_todo", label_visibility="collapsed")
+    with col2:
+        st.form_submit_button("Add", on_click=add_todo)
 
 # Display todos
 st.subheader("Your TODOs")
@@ -52,3 +50,8 @@ for i, todo in enumerate(st.session_state.todos):
             st.session_state.todos.pop(i)
             save_todos(st.session_state.todos)
             st.rerun()
+
+# Clear all todos button
+if st.button("Clear All", type="secondary"):
+    clear_todos()
+    st.rerun()
