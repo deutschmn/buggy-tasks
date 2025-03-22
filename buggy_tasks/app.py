@@ -38,7 +38,6 @@ with st.form("add_todo_form"):
         st.form_submit_button("Add", on_click=add_todo)
 
 # Display todos
-st.subheader("Your TODOs")
 for i, todo in enumerate(st.session_state.todos):
     col1, col2 = st.columns([3, 1])
     with col1:
