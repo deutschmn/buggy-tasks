@@ -46,7 +46,7 @@ for i, todo in enumerate(st.session_state.todos):
             st.session_state.todos[i]["completed"] = not todo["completed"]
             save_todos(st.session_state.todos)
     with col2:
-        if st.button("Delete", key=f"delete_{i}"):
+        if st.button("🗑️", key=f"delete_{i}", help="Delete todo"):
             st.session_state.todos.pop(i)
             save_todos(st.session_state.todos)
             st.rerun()
