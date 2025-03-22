@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Poetry
+.venv/
+
+# ML models and data
+*.joblib
+*.pkl
+models/
+
+# Environment
+.env
+
+# IDE
+.vscode/
+.DS_Store 
