@@ -1,5 +1,6 @@
 import streamlit as st
 
+from buggy_tasks.commands import process_command
 from buggy_tasks.io import load_todos, save_todos
 
 # Initialize session state for todos if it doesn't exist
@@ -11,9 +12,9 @@ if "new_todo" not in st.session_state:
 
 def add_todo():
     if st.session_state.new_todo:
-        st.session_state.todos.insert(
-            0, {"task": st.session_state.new_todo, "completed": False}
-        )
+        # Process any slash commands in the new todo
+        processed_todo = process_command(st.session_state.new_todo)
+        st.session_state.todos.insert(0, {"task": processed_todo, "completed": False})
         save_todos(st.session_state.todos)
         st.session_state.new_todo = ""
 
