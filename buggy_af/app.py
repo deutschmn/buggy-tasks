@@ -11,8 +11,8 @@ if "new_todo" not in st.session_state:
 
 def add_todo():
     if st.session_state.new_todo:
-        st.session_state.todos.append(
-            {"task": st.session_state.new_todo, "completed": False}
+        st.session_state.todos.insert(
+            0, {"task": st.session_state.new_todo, "completed": False}
         )
         save_todos(st.session_state.todos)
         st.session_state.new_todo = ""
