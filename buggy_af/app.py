@@ -18,7 +18,17 @@ def add_todo():
         st.session_state.new_todo = ""
 
 
+def clear_todos():
+    st.session_state.todos = []
+    save_todos(st.session_state.todos)
+
+
 st.title("Buggy AF - TODO List")
+
+# Clear all todos button
+if st.button("Clear All", type="secondary"):
+    clear_todos()
+    st.rerun()
 
 # Load todos on startup
 if not st.session_state.todos:
