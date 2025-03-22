@@ -5,6 +5,18 @@ from buggy_af.io import load_todos, save_todos
 # Initialize session state for todos if it doesn't exist
 if "todos" not in st.session_state:
     st.session_state.todos = []
+if "new_todo" not in st.session_state:
+    st.session_state.new_todo = ""
+
+
+def add_todo():
+    if st.session_state.new_todo:
+        st.session_state.todos.append(
+            {"task": st.session_state.new_todo, "completed": False}
+        )
+        save_todos(st.session_state.todos)
+        st.session_state.new_todo = ""
+
 
 st.title("Buggy AF - TODO List")
 
@@ -12,12 +24,10 @@ st.title("Buggy AF - TODO List")
 if not st.session_state.todos:
     st.session_state.todos = load_todos()
 
-# Add new todo
-new_todo = st.text_input("Add a new todo")
-if st.button("Add") and new_todo:
-    st.session_state.todos.append({"task": new_todo, "completed": False})
-    save_todos(st.session_state.todos)
-    st.text_input("Add a new todo", value="", key="clear_input")
+# Add new todo using a form
+with st.form("add_todo_form"):
+    st.text_input("Add a new todo", key="new_todo")
+    st.form_submit_button("Add", on_click=add_todo)
 
 # Display todos
 st.subheader("Your TODOs")
