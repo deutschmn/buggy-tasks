@@ -9,6 +9,7 @@ packages = [{include = "buggy_tasks"}]
 [tool.poetry.dependencies]
 python = "^3.10"
 streamlit = "^1.32.0"
+googletrans = "4.0.2"
 
 [tool.poetry.group.dev.dependencies]
 poethepoet = "^0.24.0"
