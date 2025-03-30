@@ -38,7 +38,9 @@ registry = CommandRegistry()
 
 # Register commands
 registry.register(
-    "translate", "Translate text to a target language", '/translate("Hello", "IT")'
+    "translate",
+    "Translate text to a target language",
+    '/translate("Learn how to make pasta", "IT")',
 )(translate)
 
 
