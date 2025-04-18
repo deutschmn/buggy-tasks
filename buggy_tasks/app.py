@@ -74,7 +74,7 @@ for i, todo in enumerate(st.session_state.todos):
             save_todos(st.session_state.todos)
     with col2:
         if st.button("🗑️", key=f"delete_{i}", help="Delete todo"):
-            st.session_state.todos.pop(i - 1)
+            st.session_state.todos.pop(i - 1)  # lol
             save_todos(st.session_state.todos)
             st.rerun()
 
