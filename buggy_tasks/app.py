@@ -121,9 +121,14 @@ with st.expander("Commands 🚀"):
 
 # Display todos
 st.subheader("My Todos")
-display_todos_with_data_editor()
 
-# Clear all todos button
-if st.button("Clear All", type="secondary"):
-    clear_todos()
-    st.rerun()
+
+if not st.session_state.todos:
+    st.write("*No todos yet!*")
+else:
+    display_todos_with_data_editor()
+
+    # Clear all todos button
+    if st.button("Clear All", type="secondary"):
+        clear_todos()
+        st.rerun()
