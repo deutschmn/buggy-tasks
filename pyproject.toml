@@ -4,12 +4,14 @@ version = "0.1.0"
 description = "A simple TODO list app built using Streamlit"
 authors = ["Patrick Deutschmann <patrick.deutschmann@me.com>"]
 readme = "README.md"
-packages = [{include = "buggy_tasks"}]
+packages = [{ include = "buggy_tasks" }]
 
 [tool.poetry.dependencies]
 python = "^3.10"
 streamlit = "^1.32.0"
 googletrans = "4.0.2"
+mistralai = "1.7.0"
+dotenv = "^0.9.9"
 
 [tool.poetry.group.dev.dependencies]
 poethepoet = "^0.24.0"
@@ -19,4 +21,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
-start = "streamlit run buggy_tasks/app.py" 
+start = "streamlit run buggy_tasks/app.py"
