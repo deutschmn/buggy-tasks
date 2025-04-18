@@ -1,4 +1,5 @@
 import streamlit as st
+import pandas as pd
 
 from buggy_tasks.commands import process_command, registry
 from buggy_tasks.io import load_todos, save_todos
@@ -15,7 +16,7 @@ def add_todo():
         # Process any slash commands in the new todo
         processed_todo = process_command(st.session_state.new_todo)
         st.session_state.todos.insert(
-            0, {"task": processed_todo, "completed": False})
+            0, {"task": processed_todo, "completed": False, "tags": []})
         save_todos(st.session_state.todos)
         st.session_state.new_todo = ""
 
@@ -27,6 +28,60 @@ def clear_todos():
 
 def insert_command_example(example: str):
     st.session_state.new_todo = example
+
+
+def display_todos_with_data_editor():
+    # Prepare data for the table
+    data = [
+        {
+            "Task": todo["task"],
+            "Completed": todo["completed"],
+            "Tags": ", ".join(todo["tags"]),
+        }
+        for todo in st.session_state.todos
+    ]
+
+    # Convert to DataFrame
+    df = pd.DataFrame(data)
+
+    # Add a checkbox column for deletion
+    df["Delete"] = False
+
+    # Ensure Delete is the last column
+    df = df[df.columns[:-1].tolist() + ["Delete"]]
+
+    # Use st.data_editor for an editable table
+    edited_df = st.data_editor(
+        df,
+        key="data_editor",
+        hide_index=True,
+        column_config={
+            "Completed": st.column_config.CheckboxColumn("Completed"),
+            "Tags": st.column_config.TextColumn("Tags"),
+            "Delete": st.column_config.CheckboxColumn("Delete"),
+        },
+    )
+
+    # Handle deletions
+    rows_to_delete = edited_df[edited_df["Delete"]].index
+    if not rows_to_delete.empty:
+        st.session_state.todos = [
+            todo for i, todo in enumerate(st.session_state.todos) if i not in rows_to_delete
+        ]
+        save_todos(st.session_state.todos)
+        st.rerun()
+
+    # Update session state with edited data
+    updated_todos = []
+    for i, row in edited_df.iterrows():
+        updated_todos.append({
+            "task": row["Task"],
+            "completed": row["Completed"],
+            "tags": [tag.strip() for tag in row["Tags"].split(",") if tag.strip()],
+        })
+
+    st.session_state.todos = updated_todos
+    save_todos(st.session_state.todos)
 
 
 st.title("Buggy Tasks - To Do List")
@@ -66,17 +121,7 @@ with st.expander("Commands 🚀"):
 
 # Display todos
 st.subheader("My Todos")
-for i, todo in enumerate(st.session_state.todos):
-    col1, col2 = st.columns([3, 1])
-    with col1:
-        if st.checkbox(todo["task"], key=f"todo_{i}", value=todo["completed"]):
-            st.session_state.todos[i]["completed"] = not todo["completed"]
-            save_todos(st.session_state.todos)
-    with col2:
-        if st.button("🗑️", key=f"delete_{i}", help="Delete todo"):
-            st.session_state.todos.pop(i - 1)  # lol
-            save_todos(st.session_state.todos)
-            st.rerun()
+display_todos_with_data_editor()
 
 # Clear all todos button
 if st.button("Clear All", type="secondary"):
