@@ -14,7 +14,8 @@ def add_todo():
     if st.session_state.new_todo:
         # Process any slash commands in the new todo
         processed_todo = process_command(st.session_state.new_todo)
-        st.session_state.todos.insert(0, {"task": processed_todo, "completed": False})
+        st.session_state.todos.insert(
+            0, {"task": processed_todo, "completed": False})
         save_todos(st.session_state.todos)
         st.session_state.new_todo = ""
 
@@ -64,6 +65,7 @@ with st.expander("Commands 🚀"):
             )
 
 # Display todos
+st.subheader("My Todos")
 for i, todo in enumerate(st.session_state.todos):
     col1, col2 = st.columns([3, 1])
     with col1:
