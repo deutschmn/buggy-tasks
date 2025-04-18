@@ -3,6 +3,7 @@ import pandas as pd
 
 from buggy_tasks.commands import process_command, registry
 from buggy_tasks.io import load_todos, save_todos
+from buggy_tasks.derive_tags import derive_tags_from_text
 
 # Initialize session state for todos if it doesn't exist
 if "todos" not in st.session_state:
@@ -15,8 +16,10 @@ def add_todo():
     if st.session_state.new_todo:
         # Process any slash commands in the new todo
         processed_todo = process_command(st.session_state.new_todo)
+        # Automatically derive tags using Mistral AI
+        derived_tags = derive_tags_from_text(processed_todo)
         st.session_state.todos.insert(
-            0, {"task": processed_todo, "completed": False, "tags": []})
+            0, {"task": processed_todo, "completed": False, "tags": derived_tags})
         save_todos(st.session_state.todos)
         st.session_state.new_todo = ""
 
