@@ -24,18 +24,17 @@ logger = logging.getLogger(__name__)
 def save_todos(todos: List[Dict[str, Any]]) -> None:
     """
     Save todos to a JSON file in the data directory
-    
+
     Args:
         todos: List of todo dictionaries to save
     """
     # Create data directory if it doesn't exist
     DATA_DIR.mkdir(exist_ok=True)
-    
+
     # Write todos to file
     try:
         with open(TODOS_PATH, "w") as file_handle:
             json.dump(todos, file_handle, indent=2)
-
 
     except IOError as e:
         logger.error(f"Failed to save todos: {e}")
@@ -45,7 +44,7 @@ def save_todos(todos: List[Dict[str, Any]]) -> None:
 def load_todos() -> List[Dict[str, Any]]:
     """
     Load todos from JSON file in the data directory
-    
+
     Returns:
         List of todo dictionaries, or empty list if file doesn't exist
     """
