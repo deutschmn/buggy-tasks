@@ -38,7 +38,7 @@ def train_priority_model():
     print("Model saved successfully.")
 
 
-def compute_priority(tags):
+def compute_priority(tags) -> int:
     """Predict the priority of a TODO based on its tags."""
     # Ensure the model is trained
     if not os.path.exists(MODEL_PATH):
@@ -50,4 +50,7 @@ def compute_priority(tags):
 
     # Predict the priority
     tags_text = " ".join(tags)
-    return model.predict([tags_text])[0]
+    print(f"Predicting priority for tags: {tags_text}")
+    priority = model.predict([tags_text])[0].item()
+    print(f"Predicted priority: {priority}")
+    return priority
