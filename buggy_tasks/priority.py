@@ -37,7 +37,7 @@ MODEL_PATH = BASE_DIR / "priority_model.pkl"
 def train_priority_model(train_data_path: str = REFERENCE_DATA_PATH) -> None:
     """
     Train and save a machine learning model to predict task priority.
-    
+
     This function loads reference data containing tags and priorities,
     trains a machine learning model (TF-IDF + SVC), and saves it to disk.
     """
@@ -54,7 +54,7 @@ def train_priority_model(train_data_path: str = REFERENCE_DATA_PATH) -> None:
         # Prepare features (tags) and target (priority)
         feature_texts = [" ".join(item['tags']) for item in training_data]
         target_priorities = [item['priority'] for item in training_data]
-        
+
         logger.debug(f"Feature sample: {feature_texts[:3]}")
         logger.debug(f"Target sample: {target_priorities[:3]}")
 
@@ -74,7 +74,7 @@ def train_priority_model(train_data_path: str = REFERENCE_DATA_PATH) -> None:
         logger.info(f"Saving trained model to {MODEL_PATH}")
         joblib.dump(ml_pipeline, MODEL_PATH)
         logger.info("Model training completed successfully")
-    
+
     except Exception as e:
         logger.error(f"Error training priority model: {e}")
         raise
@@ -83,13 +83,13 @@ def train_priority_model(train_data_path: str = REFERENCE_DATA_PATH) -> None:
 def compute_priority(tags: List[str]) -> int:
     """
     Predict the priority of a task based on its tags.
-    
+
     Args:
         tags: A list of tags associated with the task
-        
+
     Returns:
         Integer priority score (higher means more important)
-        
+
     Raises:
         FileNotFoundError: If the trained model file doesn't exist
     """
@@ -103,21 +103,21 @@ def compute_priority(tags: List[str]) -> int:
         # Load the trained machine learning model
         logger.debug(f"Loading model from {MODEL_PATH}")
         priority_model = joblib.load(MODEL_PATH)
-        
+
         # Convert tags list to the format expected by the model
         tags_feature = " ".join(tags)
         logger.debug(f"Computing priority for tags: {tags_feature}")
-        
+
         # Make prediction using the model
         predicted_priority = priority_model.predict([tags_feature])[0]
-        
+
         # Convert to Python int if needed (from numpy type)
         if isinstance(predicted_priority, np.integer):
             predicted_priority = int(predicted_priority)
-            
+
         logger.info(f"Computed priority {predicted_priority} for tags: {tags}")
         return predicted_priority
-        
+
     except Exception as e:
         logger.error(f"Error computing priority: {e}")
         # Return a default priority in case of error
