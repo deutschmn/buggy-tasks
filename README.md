@@ -17,7 +17,7 @@ poetry install
 To start the Streamlit app:
 
 ```bash
-poetry run poe start
+poe start
 ```
 
 This will launch the app in your default web browser.
