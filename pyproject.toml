@@ -12,6 +12,8 @@ streamlit = "^1.32.0"
 googletrans = "4.0.2"
 mistralai = "1.7.0"
 dotenv = "^0.9.9"
+scikit-learn = "^1.6.1"
+joblib = "^1.5.0"
 
 [tool.poetry.group.dev.dependencies]
 poethepoet = "^0.24.0"
@@ -22,3 +24,4 @@ build-backend = "poetry.core.masonry.api"
 
 [tool.poe.tasks]
 start = "streamlit run buggy_tasks/app.py"
+train-model = "python -c 'from buggy_tasks.priority import train_priority_model; train_priority_model()'"
