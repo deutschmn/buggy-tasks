@@ -4,6 +4,7 @@ import pandas as pd
 from buggy_tasks.commands import process_command, registry
 from buggy_tasks.io import load_todos, save_todos
 from buggy_tasks.derive_tags import derive_tags_from_text
+from buggy_tasks.priority import compute_priority
 
 # Initialize session state for todos if it doesn't exist
 if "todos" not in st.session_state:
@@ -18,8 +19,13 @@ def add_todo():
         processed_todo = process_command(st.session_state.new_todo)
         # Automatically derive tags using Mistral AI
         derived_tags = derive_tags_from_text(processed_todo)
+        # Compute priority based on tags
+        priority = compute_priority(derived_tags)
+        # Add the new todo with priority
         st.session_state.todos.insert(
-            0, {"task": processed_todo, "completed": False, "tags": derived_tags})
+            0, {"task": processed_todo, "completed": False,
+                "tags": derived_tags, "priority": priority}
+        )
         save_todos(st.session_state.todos)
         st.session_state.new_todo = ""
 
@@ -40,6 +46,7 @@ def display_todos_with_data_editor():
             "Task": todo["task"],
             "Completed": todo["completed"],
             "Tags": ", ".join(todo["tags"]),
+            "Priority": todo["priority"],
         }
         for todo in st.session_state.todos
     ]
@@ -61,6 +68,7 @@ def display_todos_with_data_editor():
         column_config={
             "Completed": st.column_config.CheckboxColumn("Completed"),
             "Tags": st.column_config.TextColumn("Tags"),
+            "Priority": st.column_config.NumberColumn("Priority", disabled=True),
             "Delete": st.column_config.CheckboxColumn("Delete"),
         },
     )
@@ -81,6 +89,7 @@ def display_todos_with_data_editor():
             "task": row["Task"],
             "completed": row["Completed"],
             "tags": [tag.strip() for tag in row["Tags"].split(",") if tag.strip()],
+            "priority": row["Priority"],
         })
 
     st.session_state.todos = updated_todos
