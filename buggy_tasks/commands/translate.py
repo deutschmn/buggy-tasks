@@ -23,7 +23,7 @@ logger = logging.getLogger(__name__)
 COMMON_LANGUAGES: Dict[str, str] = {
     "EN": "English",
     "ES": "Spanish",
-    "FR": "French", 
+    "FR": "French",
     "DE": "German",
     "IT": "Italian",
     "PT": "Portuguese",
@@ -37,25 +37,25 @@ COMMON_LANGUAGES: Dict[str, str] = {
 async def _translate_async(text: str, target_lang: str) -> str:
     """
     Internal async function to perform the translation.
-    
+
     Args:
         text: Text to translate
         target_lang: Target language code
-        
+
     Returns:
         Translated text string
     """
     # Normalize language code to lowercase as required by the API
     normalized_lang = target_lang.lower()
-    
+
     # Create translator and perform translation
     async with Translator() as translator:
         # Execute the translation
         translation_result = await translator.translate(text, dest=normalized_lang)
-        
+
         # Log successful translation
         logger.debug(f"Translated: '{text}' → '{translation_result.text}'")
-        
+
         return translation_result.text
 
 
@@ -80,13 +80,13 @@ def translate(text: str, target_lang: str) -> str:
     # Input validation
     if not text or not text.strip():
         raise ValueError("Cannot translate empty text")
-    
+
     if not target_lang or len(target_lang) < 2:
         raise ValueError("Invalid target language code")
-        
+
     # Log the translation request
     logger.info(f"Translating text to {target_lang.upper()}")
-    
+
     try:
         # Run the async translation function in a synchronous context
         translated_text = asyncio.run(_translate_async(text, target_lang))
