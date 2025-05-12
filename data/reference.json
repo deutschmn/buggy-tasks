@@ -4,10 +4,10 @@
         "completed": false,
         "tags": [
             "grandma",
-            "train station",
+            "family",
             "pick up"
         ],
-        "priority": 3
+        "priority": 1
     },
     {
         "task": "Clean the kitchen",
@@ -43,7 +43,7 @@
             "groceries",
             "shopping"
         ],
-        "priority": 3
+        "priority": 1
     },
     {
         "task": "Mow the lawn",
@@ -88,7 +88,7 @@
             "garage",
             "cleaning"
         ],
-        "priority": 2
+        "priority": 3
     },
     {
         "task": "Take the dog for a walk",
@@ -160,7 +160,7 @@
             "family",
             "photos"
         ],
-        "priority": 2
+        "priority": 1
     },
     {
         "task": "Schedule a dentist appointment",
@@ -169,7 +169,7 @@
             "health",
             "appointment"
         ],
-        "priority": 3
+        "priority": 2
     },
     {
         "task": "Clean the windows",
@@ -178,7 +178,7 @@
             "house",
             "cleaning"
         ],
-        "priority": 2
+        "priority": 3
     },
     {
         "task": "Learn Python programming",
@@ -196,7 +196,7 @@
             "bookshelf",
             "cleaning"
         ],
-        "priority": 2
+        "priority": 3
     },
     {
         "task": "Plan a family dinner",
@@ -349,6 +349,6 @@
             "car",
             "cleaning"
         ],
-        "priority": 2
+        "priority": 3
     }
 ]
