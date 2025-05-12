@@ -1,0 +1,354 @@
+[
+    {
+        "task": "Pick grandma up from the train station",
+        "completed": false,
+        "tags": [
+            "grandma",
+            "train station",
+            "pick up"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Clean the kitchen",
+        "completed": false,
+        "tags": [
+            "kitchen",
+            "cleaning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Learn Spanish",
+        "completed": false,
+        "tags": [
+            "Spanish",
+            "Language"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Learn Italian",
+        "completed": false,
+        "tags": [
+            "Language",
+            "Italian"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Buy groceries for the week",
+        "completed": false,
+        "tags": [
+            "groceries",
+            "shopping"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Mow the lawn",
+        "completed": false,
+        "tags": [
+            "garden",
+            "chores"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Call the plumber",
+        "completed": false,
+        "tags": [
+            "house",
+            "maintenance"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Finish reading a book",
+        "completed": false,
+        "tags": [
+            "reading",
+            "leisure"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Prepare a presentation for work",
+        "completed": false,
+        "tags": [
+            "work",
+            "presentation"
+        ],
+        "priority": 1
+    },
+    {
+        "task": "Organize the garage",
+        "completed": false,
+        "tags": [
+            "garage",
+            "cleaning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Take the dog for a walk",
+        "completed": false,
+        "tags": [
+            "dog",
+            "exercise"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Plan a weekend trip",
+        "completed": false,
+        "tags": [
+            "travel",
+            "planning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Water the plants",
+        "completed": false,
+        "tags": [
+            "garden",
+            "plants"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Write a blog post",
+        "completed": false,
+        "tags": [
+            "writing",
+            "blog"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Fix the broken chair",
+        "completed": false,
+        "tags": [
+            "house",
+            "maintenance"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Practice yoga",
+        "completed": false,
+        "tags": [
+            "exercise",
+            "health"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Bake a cake",
+        "completed": false,
+        "tags": [
+            "baking",
+            "kitchen"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Update the family photo album",
+        "completed": false,
+        "tags": [
+            "family",
+            "photos"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Schedule a dentist appointment",
+        "completed": false,
+        "tags": [
+            "health",
+            "appointment"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Clean the windows",
+        "completed": false,
+        "tags": [
+            "house",
+            "cleaning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Learn Python programming",
+        "completed": false,
+        "tags": [
+            "programming",
+            "Python"
+        ],
+        "priority": 1
+    },
+    {
+        "task": "Organize the bookshelf",
+        "completed": false,
+        "tags": [
+            "bookshelf",
+            "cleaning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Plan a family dinner",
+        "completed": false,
+        "tags": [
+            "family",
+            "dinner"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Go for a morning run",
+        "completed": false,
+        "tags": [
+            "exercise",
+            "health"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Write a thank-you note",
+        "completed": false,
+        "tags": [
+            "writing",
+            "gratitude"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Declutter the wardrobe",
+        "completed": false,
+        "tags": [
+            "wardrobe",
+            "cleaning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Research vacation destinations",
+        "completed": false,
+        "tags": [
+            "travel",
+            "planning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Paint the living room wall",
+        "completed": false,
+        "tags": [
+            "house",
+            "painting"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Learn to play the guitar",
+        "completed": false,
+        "tags": [
+            "music",
+            "learning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Prepare a healthy meal",
+        "completed": false,
+        "tags": [
+            "kitchen",
+            "health"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Check the car's oil level",
+        "completed": false,
+        "tags": [
+            "car",
+            "maintenance"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Meditate for 10 minutes",
+        "completed": false,
+        "tags": [
+            "health",
+            "meditation"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Sort old photos",
+        "completed": false,
+        "tags": [
+            "photos",
+            "organizing"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Send an email to a friend",
+        "completed": false,
+        "tags": [
+            "communication",
+            "email"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Repair the garden fence",
+        "completed": false,
+        "tags": [
+            "garden",
+            "maintenance"
+        ],
+        "priority": 3
+    },
+    {
+        "task": "Watch a documentary",
+        "completed": false,
+        "tags": [
+            "leisure",
+            "learning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Organize a charity event",
+        "completed": false,
+        "tags": [
+            "charity",
+            "planning"
+        ],
+        "priority": 1
+    },
+    {
+        "task": "Learn basic photography",
+        "completed": false,
+        "tags": [
+            "photography",
+            "learning"
+        ],
+        "priority": 2
+    },
+    {
+        "task": "Clean the car interior",
+        "completed": false,
+        "tags": [
+            "car",
+            "cleaning"
+        ],
+        "priority": 2
+    }
+]
