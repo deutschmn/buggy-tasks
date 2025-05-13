@@ -3,9 +3,8 @@
         "task": "Pick grandma up from the train station",
         "completed": false,
         "tags": [
-            "grandma",
             "family",
-            "pick up"
+            "chores"
         ],
         "priority": 1
     },
@@ -13,26 +12,27 @@
         "task": "Clean the kitchen",
         "completed": false,
         "tags": [
-            "kitchen",
-            "cleaning"
+            "cleaning",
+            "chores"
         ],
-        "priority": 2
+        "priority": 3
     },
     {
-        "task": "Learn Spanish",
+        "task": "Complete Python web scraping tutorial",
         "completed": false,
         "tags": [
-            "Spanish",
-            "Language"
+            "learning",
+            "python",
+            "open-source"
         ],
-        "priority": 2
+        "priority": 1
     },
     {
         "task": "Learn Italian",
         "completed": false,
         "tags": [
-            "Language",
-            "Italian"
+            "learning",
+            "personal"
         ],
         "priority": 2
     },
@@ -40,8 +40,8 @@
         "task": "Buy groceries for the week",
         "completed": false,
         "tags": [
-            "groceries",
-            "shopping"
+            "chores",
+            "family"
         ],
         "priority": 1
     },
@@ -49,8 +49,8 @@
         "task": "Mow the lawn",
         "completed": false,
         "tags": [
-            "garden",
-            "chores"
+            "chores",
+            "cleaning"
         ],
         "priority": 2
     },
@@ -58,8 +58,8 @@
         "task": "Call the plumber",
         "completed": false,
         "tags": [
-            "house",
-            "maintenance"
+            "chores",
+            "home"
         ],
         "priority": 3
     },
@@ -67,17 +67,17 @@
         "task": "Finish reading a book",
         "completed": false,
         "tags": [
-            "reading",
-            "leisure"
+            "learning",
+            "personal"
         ],
         "priority": 2
     },
     {
-        "task": "Prepare a presentation for work",
+        "task": "Prepare a presentation for PyCon Italy",
         "completed": false,
         "tags": [
             "work",
-            "presentation"
+            "learning"
         ],
         "priority": 1
     },
@@ -85,8 +85,8 @@
         "task": "Organize the garage",
         "completed": false,
         "tags": [
-            "garage",
-            "cleaning"
+            "cleaning",
+            "chores"
         ],
         "priority": 3
     },
@@ -94,8 +94,8 @@
         "task": "Take the dog for a walk",
         "completed": false,
         "tags": [
-            "dog",
-            "exercise"
+            "health",
+            "chores"
         ],
         "priority": 3
     },
@@ -103,8 +103,8 @@
         "task": "Plan a weekend trip",
         "completed": false,
         "tags": [
-            "travel",
-            "planning"
+            "family",
+            "personal"
         ],
         "priority": 2
     },
@@ -112,44 +112,44 @@
         "task": "Water the plants",
         "completed": false,
         "tags": [
-            "garden",
-            "plants"
+            "chores",
+            "home"
         ],
         "priority": 3
     },
     {
-        "task": "Write a blog post",
+        "task": "Write a blog post about Python data visualization",
         "completed": false,
         "tags": [
-            "writing",
-            "blog"
+            "python",
+            "open-source"
+        ],
+        "priority": 1
+    },
+    {
+        "task": "Fix Python script for data analysis",
+        "completed": false,
+        "tags": [
+            "work",
+            "python"
+        ],
+        "priority": 1
+    },
+    {
+        "task": "Learn new yoga moves",
+        "completed": false,
+        "tags": [
+            "health",
+            "personal"
         ],
         "priority": 2
     },
     {
-        "task": "Fix the broken chair",
+        "task": "Bake birthday cake for dad",
         "completed": false,
         "tags": [
-            "house",
-            "maintenance"
-        ],
-        "priority": 3
-    },
-    {
-        "task": "Practice yoga",
-        "completed": false,
-        "tags": [
-            "exercise",
-            "health"
-        ],
-        "priority": 2
-    },
-    {
-        "task": "Bake a cake",
-        "completed": false,
-        "tags": [
-            "baking",
-            "kitchen"
+            "family",
+            "personal"
         ],
         "priority": 3
     },
@@ -158,7 +158,7 @@
         "completed": false,
         "tags": [
             "family",
-            "photos"
+            "personal"
         ],
         "priority": 1
     },
@@ -167,7 +167,7 @@
         "completed": false,
         "tags": [
             "health",
-            "appointment"
+            "personal"
         ],
         "priority": 2
     },
@@ -175,8 +175,8 @@
         "task": "Clean the windows",
         "completed": false,
         "tags": [
-            "house",
-            "cleaning"
+            "cleaning",
+            "chores"
         ],
         "priority": 3
     },
@@ -184,8 +184,8 @@
         "task": "Learn Python programming",
         "completed": false,
         "tags": [
-            "programming",
-            "Python"
+            "learning",
+            "work"
         ],
         "priority": 1
     },
@@ -193,8 +193,8 @@
         "task": "Organize the bookshelf",
         "completed": false,
         "tags": [
-            "bookshelf",
-            "cleaning"
+            "cleaning",
+            "chores"
         ],
         "priority": 3
     },
@@ -203,7 +203,7 @@
         "completed": false,
         "tags": [
             "family",
-            "dinner"
+            "chores"
         ],
         "priority": 1
     },
@@ -211,44 +211,35 @@
         "task": "Go for a morning run",
         "completed": false,
         "tags": [
-            "exercise",
-            "health"
+            "health",
+            "personal"
         ],
         "priority": 2
-    },
-    {
-        "task": "Write a thank-you note",
-        "completed": false,
-        "tags": [
-            "writing",
-            "gratitude"
-        ],
-        "priority": 3
     },
     {
         "task": "Declutter the wardrobe",
         "completed": false,
         "tags": [
-            "wardrobe",
-            "cleaning"
+            "cleaning",
+            "chores"
         ],
-        "priority": 2
+        "priority": 3
     },
     {
-        "task": "Research vacation destinations",
+        "task": "Research Python libraries for going to the moon",
         "completed": false,
         "tags": [
-            "travel",
-            "planning"
+            "learning",
+            "python"
         ],
-        "priority": 2
+        "priority": 1
     },
     {
         "task": "Paint the living room wall",
         "completed": false,
         "tags": [
-            "house",
-            "painting"
+            "chores",
+            "home"
         ],
         "priority": 3
     },
@@ -256,8 +247,8 @@
         "task": "Learn to play the guitar",
         "completed": false,
         "tags": [
-            "music",
-            "learning"
+            "learning",
+            "personal"
         ],
         "priority": 2
     },
@@ -265,8 +256,8 @@
         "task": "Prepare a healthy meal",
         "completed": false,
         "tags": [
-            "kitchen",
-            "health"
+            "health",
+            "family"
         ],
         "priority": 3
     },
@@ -274,7 +265,7 @@
         "task": "Check the car's oil level",
         "completed": false,
         "tags": [
-            "car",
+            "chores",
             "maintenance"
         ],
         "priority": 3
@@ -284,7 +275,7 @@
         "completed": false,
         "tags": [
             "health",
-            "meditation"
+            "personal"
         ],
         "priority": 2
     },
@@ -292,8 +283,8 @@
         "task": "Sort old photos",
         "completed": false,
         "tags": [
-            "photos",
-            "organizing"
+            "family",
+            "personal"
         ],
         "priority": 2
     },
@@ -301,8 +292,8 @@
         "task": "Send an email to a friend",
         "completed": false,
         "tags": [
-            "communication",
-            "email"
+            "personal",
+            "communication"
         ],
         "priority": 3
     },
@@ -310,26 +301,26 @@
         "task": "Repair the garden fence",
         "completed": false,
         "tags": [
-            "garden",
-            "maintenance"
+            "chores",
+            "home"
         ],
         "priority": 3
     },
     {
-        "task": "Watch a documentary",
+        "task": "Watch Python debugging techniques tutorial",
         "completed": false,
         "tags": [
-            "leisure",
-            "learning"
+            "learning",
+            "python"
         ],
-        "priority": 2
+        "priority": 1
     },
     {
-        "task": "Organize a charity event",
+        "task": "Organize a Python coding workshop",
         "completed": false,
         "tags": [
-            "charity",
-            "planning"
+            "open-source",
+            "learning"
         ],
         "priority": 1
     },
@@ -337,8 +328,8 @@
         "task": "Learn basic photography",
         "completed": false,
         "tags": [
-            "photography",
-            "learning"
+            "learning",
+            "personal"
         ],
         "priority": 2
     },
@@ -346,8 +337,8 @@
         "task": "Clean the car interior",
         "completed": false,
         "tags": [
-            "car",
-            "cleaning"
+            "cleaning",
+            "chores"
         ],
         "priority": 3
     }

@@ -17,7 +17,7 @@ def derive_tags_from_text(text):
     messages = [
         {
             "role": "system",
-            "content": f"You are a helpful assistant that derives tags from TODO list items. The tags should be relevant to the task. Examples for tags are 'cleaning', 'work', 'learning', 'health', 'chores', 'family'. Return a maximum of 3 tags. Return JSON that looks like this: {expected_example}. Do not include any other text or explanation.",
+            "content": f"You are a helpful assistant that derives tags from TODO list items. The tags should be relevant to the task. Examples for tags are 'cleaning', 'work', 'learning', 'health', 'chores', 'family', 'python'. Return a maximum of 3 tags. Return JSON that looks like this: {expected_example}. Do not include any other text or explanation.",
         },
         {
             "role": "user",
