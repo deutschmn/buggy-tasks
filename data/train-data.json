@@ -18,16 +18,6 @@
         "priority": 3
     },
     {
-        "task": "Complete Python web scraping tutorial",
-        "completed": false,
-        "tags": [
-            "learning",
-            "python",
-            "open-source"
-        ],
-        "priority": 1
-    },
-    {
         "task": "Learn Italian",
         "completed": false,
         "tags": [
@@ -118,24 +108,6 @@
         "priority": 3
     },
     {
-        "task": "Write a blog post about Python data visualization",
-        "completed": false,
-        "tags": [
-            "python",
-            "open-source"
-        ],
-        "priority": 1
-    },
-    {
-        "task": "Fix Python script for data analysis",
-        "completed": false,
-        "tags": [
-            "work",
-            "python"
-        ],
-        "priority": 1
-    },
-    {
         "task": "Learn new yoga moves",
         "completed": false,
         "tags": [
@@ -217,15 +189,6 @@
         "priority": 3
     },
     {
-        "task": "Research Python libraries for going to the moon",
-        "completed": false,
-        "tags": [
-            "learning",
-            "python"
-        ],
-        "priority": 1
-    },
-    {
         "task": "Paint the living room wall",
         "completed": false,
         "tags": [
@@ -296,24 +259,6 @@
             "home"
         ],
         "priority": 3
-    },
-    {
-        "task": "Watch Python debugging techniques tutorial",
-        "completed": false,
-        "tags": [
-            "learning",
-            "python"
-        ],
-        "priority": 1
-    },
-    {
-        "task": "Organize a Python coding workshop",
-        "completed": false,
-        "tags": [
-            "open-source",
-            "learning"
-        ],
-        "priority": 1
     },
     {
         "task": "Learn basic photography",
