@@ -30,11 +30,11 @@ BASE_DIR = Path(__file__).parent
 DATA_DIR = BASE_DIR.parent / "data"
 
 # File paths
-REFERENCE_DATA_PATH = DATA_DIR / "reference.json"
+REFERENCE_DATA_PATH = DATA_DIR / "train-data.json"
 MODEL_PATH = BASE_DIR / "priority_model.pkl"
 
 
-def train_priority_model() -> None:
+def train_priority_model(train_data_path: str = REFERENCE_DATA_PATH) -> None:
     """
     Train and save a machine learning model to predict task priority.
     
@@ -45,8 +45,8 @@ def train_priority_model() -> None:
 
     try:
         # Load the reference training data
-        logger.info(f"Loading reference data from {REFERENCE_DATA_PATH}")
-        with open(REFERENCE_DATA_PATH, 'r') as file_handle:
+        logger.info(f"Loading reference data from {train_data_path}")
+        with open(train_data_path, 'r') as file_handle:
             training_data = json.load(file_handle)
 
         logger.info(f"Loaded {len(training_data)} training examples")
