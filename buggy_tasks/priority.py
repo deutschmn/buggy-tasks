@@ -22,9 +22,6 @@ from sklearn.pipeline import Pipeline, make_pipeline
 import joblib
 import numpy as np
 
-# Configure logging
-logger = logging.getLogger(__name__)
-
 # Constants and configuration
 BASE_DIR = Path(__file__).parent
 DATA_DIR = BASE_DIR.parent / "data"
@@ -41,22 +38,22 @@ def train_priority_model(train_data_path: str = REFERENCE_DATA_PATH) -> None:
     This function loads reference data containing tags and priorities,
     trains a machine learning model (TF-IDF + SVC), and saves it to disk.
     """
-    logger.info("Starting model training process...")
+    print("Starting model training process...")
 
     try:
         # Load the reference training data
-        logger.info(f"Loading reference data from {train_data_path}")
+        print(f"Loading reference data from {train_data_path}")
         with open(train_data_path, 'r') as file_handle:
             training_data = json.load(file_handle)
 
-        logger.info(f"Loaded {len(training_data)} training examples")
+        print(f"Loaded {len(training_data)} training examples")
 
         # Prepare features (tags) and target (priority)
         feature_texts = [" ".join(item['tags']) for item in training_data]
         target_priorities = [item['priority'] for item in training_data]
 
-        logger.debug(f"Feature sample: {feature_texts[:3]}")
-        logger.debug(f"Target sample: {target_priorities[:3]}")
+        print(f"Feature sample: {feature_texts[:3]}")
+        print(f"Target sample: {target_priorities[:3]}")
 
         # Create a machine learning pipeline
         # First, convert text to numerical features using TF-IDF
@@ -67,16 +64,16 @@ def train_priority_model(train_data_path: str = REFERENCE_DATA_PATH) -> None:
         )
 
         # Train the model on our data
-        logger.info("Training model...")
+        print("Training model...")
         ml_pipeline.fit(feature_texts, target_priorities)
 
         # Save the trained model to disk for later use
-        logger.info(f"Saving trained model to {MODEL_PATH}")
+        print(f"Saving trained model to {MODEL_PATH}")
         joblib.dump(ml_pipeline, MODEL_PATH)
-        logger.info("Model training completed successfully")
+        print("Model training completed successfully")
 
     except Exception as e:
-        logger.error(f"Error training priority model: {e}")
+        print(f"Error training priority model: {e}")
         raise
 
 
@@ -96,17 +93,17 @@ def compute_priority(tags: List[str]) -> int:
     # Verify the model file exists
     if not MODEL_PATH.exists():
         error_msg = f"Priority model not found at {MODEL_PATH}. Run train_priority_model() first."
-        logger.error(error_msg)
+        print(error_msg)
         raise FileNotFoundError(error_msg)
 
     try:
         # Load the trained machine learning model
-        logger.debug(f"Loading model from {MODEL_PATH}")
+        print(f"Loading model from {MODEL_PATH}")
         priority_model = joblib.load(MODEL_PATH)
 
         # Convert tags list to the format expected by the model
         tags_feature = " ".join(tags)
-        logger.debug(f"Computing priority for tags: {tags_feature}")
+        print(f"Computing priority for tags: {tags_feature}")
 
         # Make prediction using the model
         predicted_priority = priority_model.predict([tags_feature])[0]
@@ -115,10 +112,10 @@ def compute_priority(tags: List[str]) -> int:
         if isinstance(predicted_priority, np.integer):
             predicted_priority = int(predicted_priority)
 
-        logger.info(f"Computed priority {predicted_priority} for tags: {tags}")
+        print(f"Computed priority {predicted_priority} for tags: {tags}")
         return predicted_priority
 
     except Exception as e:
-        logger.error(f"Error computing priority: {e}")
+        print(f"Error computing priority: {e}")
         # Return a default priority in case of error
         return 2
