@@ -123,7 +123,7 @@ def display_todos_with_data_editor():
     # Check if any rows need to be deleted
     if not rows_marked_for_deletion.empty:
         # Filter out the todos that should be deleted using list comprehension
-        indices_to_delete = [i - 1 for i in rows_marked_for_deletion if i - 1 >= 0]
+        indices_to_delete = [i - 1 for i in rows_marked_for_deletion]
         st.session_state.todos = [
             todo for i, todo in enumerate(st.session_state.todos) if i not in indices_to_delete
         ]
