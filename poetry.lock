@@ -1648,6 +1648,17 @@ socks = ["pysocks (>=1.5.6,!=1.5.7,<2.0)"]
 zstd = ["zstandard (>=0.18.0)"]
 
 [[package]]
+name = "wat"
+version = "0.6.0"
+description = "Deep inspection of Python objects"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "wat-0.6.0-py3-none-any.whl", hash = "sha256:53b3d6aeffe87f3691ad4a0a333e861ea4f997401ef0de8ea892062733f9ae3d"},
+    {file = "wat-0.6.0.tar.gz", hash = "sha256:ba25374e243f2ebd53ed577b9bc5f08b914ff103e4f8030bd4b6e3625888788b"},
+]
+
+[[package]]
 name = "watchdog"
 version = "6.0.0"
 description = "Filesystem events monitoring"
@@ -1692,4 +1703,4 @@ watchmedo = ["PyYAML (>=3.10)"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "703af8fa735a82bc8488931d24100f4ecce5b7a4434853baa6c9ed448afa25c3"
+content-hash = "10f5428fc7f4131da1c450ce770833450701f857bb3ad667d76cb05976437f7e"
